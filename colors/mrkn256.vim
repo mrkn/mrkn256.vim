@@ -297,7 +297,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("Delimiter", "99cccc", "", "bold")
     "Underlined
     call <SID>X("Ignore", "666666", "", "")
-    "Error
+    call <SID>X("Error", "fa8072", "000000", "")
     call <SID>X("Todo", "ff4500", "eeee00", "")
 
     " for Ruby {{{
