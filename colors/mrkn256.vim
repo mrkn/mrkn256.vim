@@ -19,7 +19,6 @@
 " necessity of converting color names to #rrggbb form, but decided it was just
 " not worth the effort.  I thank a lot for his results.
 
-set background=dark
 if version > 580
     " no guarantees for version 5.8 and below, but this makes it stop
     " complaining
@@ -29,6 +28,224 @@ if version > 580
     endif
 endif
 let g:colors_name="mrkn256"
+
+" dark colormap {{{
+function! <SID>init_dark_colormap()
+  let l:cm = {}
+  " common group               fg        bg        attr
+  let l:cm['Normal'] =       [ 'cccccc', '000000', '' ]
+  let l:cm['ColorColumn'] =  [ '------', '------', '' ]
+  let l:cm['Conceal'] =      [ '------', '------', '' ]
+  let l:cm['Cursor'] =       [ '708090', 'f0e68c', '' ]
+  let l:cm['CursorIM'] =     [ '------', '------', '' ]
+  let l:cm['CursorColumn'] = [ '------', '333333', 'none' ]
+  let l:cm['CursorLine'] =   [ '------', '333333', 'underline' ]
+  let l:cm['Directory'] =    [ '------', '------', '' ]
+  let l:cm['DiffAdd'] =      [ '------', '------', '' ]
+  let l:cm['DiffChange'] =   [ '------', '------', '' ]
+  let l:cm['DiffDelete'] =   [ '------', '------', '' ]
+  let l:cm['DiffText'] =     [ '------', '------', '' ]
+  let l:cm['ErrMsg'] =       [ '------', '------', '' ]
+  let l:cm['VertSplit'] =    [ '666666', '000000', 'none' ]
+  let l:cm['Folded'] =       [ 'ffd700', '000000', 'none' ]
+  let l:cm['FoldColumn'] =   [ 'd2b48c', '4d4d4d', '' ]
+  let l:cm['SignColumn'] =   [ '------', '------', '' ]
+  let l:cm['IncSearch'] =    [ '708090', 'f0e68c', '' ]
+  let l:cm['LineNr'] =       [ '666666', '------', 'none' ]
+  let l:cm['MatchParen'] =   [ '------', '------', '' ]
+  let l:cm['ModeMsg'] =      [ 'daa520', '------', '' ]
+  let l:cm['MoreMsg'] =      [ '2e8b57', '------', '' ]
+  let l:cm['NonText'] =      [ '666699', '------', 'none' ]
+  let l:cm['Pmenu'] =        [ 'cccccc', '333333', 'none' ]
+  let l:cm['PmenuSel'] =     [ '663333', 'cccccc', 'bold' ]
+  let l:cm['PmenuSbar'] =    [ '------', '------', '' ]
+  let l:cm['PmenuThumb'] =   [ '------', '------', '' ]
+  let l:cm['Question'] =     [ '00ff7f', '------', '' ]
+  let l:cm['Search'] =       [ '333333', 'cccccc', 'bold' ]
+  let l:cm['SpecialKey'] =   [ '666699', '------', 'none' ]
+  let l:cm['SpellBad'] =     [ '------', '------', '' ]
+  let l:cm['SpellCap'] =     [ '------', '------', '' ]
+  let l:cm['SpellLocal'] =   [ '------', '------', '' ]
+  let l:cm['SpellRare'] =    [ '------', '------', '' ]
+  let l:cm['StatusLine'] =   [ 'ffffff', '666666', 'none' ]
+  let l:cm['StatusLineNC'] = [ '000000', '666666', 'none' ]
+  let l:cm['TabLine'] =      [ '------', '------', '' ]
+  let l:cm['TabLineFill'] =  [ '------', '------', '' ]
+  let l:cm['TabLineSel'] =   [ '------', '------', '' ]
+  let l:cm['Title'] =        [ 'cd5c5c', '------', '' ]
+  let l:cm['Visual'] =       [ '6b8e23', 'f0e68c', 'reverse' ]
+  let l:cm['VisualNOS'] =    [ '------', '------', '' ]
+  let l:cm['WarningMsg'] =   [ 'fa8072', '------', '' ]
+  let l:cm['WildMenu'] =     [ '------', '------', '' ]
+
+  " GUI                     fg        bg        attr
+  let l:cm['Menu'] =      [ '------', '------', '' ]
+  let l:cm['Scrollbar'] = [ '------', '------', '' ]
+  let l:cm['Tooltip'] =   [ '------', '------', '' ]
+
+  " common syntax                fg        bg        attr
+  let l:cm['Comment'] =        [ '00ff00', '------', '' ]
+  let l:cm['Constant'] =       [ 'ffcc66', '------', '' ]
+  let l:cm['String'] =         [ '99cccc', '------', '' ]
+  let l:cm['Character'] =      [ '------', '------', '' ]
+  let l:cm['Number'] =         [ 'cc66ff', '------', '' ]
+  let l:cm['Boolean'] =        [ '------', '------', '' ]
+  let l:cm['Float'] =          [ '------', '------', '' ]
+  let l:cm['Identifier'] =     [ '99ff00', '------', 'none' ]
+  let l:cm['Function'] =       [ '9999ff', '------', 'underline' ]
+  let l:cm['Statement'] =      [ '6699ff', '------', 'none' ]
+  let l:cm['Conditional'] =    [ 'ff6633', '------', 'bold' ]
+  let l:cm['Repeat'] =         [ '66ff66', '------', 'bold' ]
+  let l:cm['Label'] =          [ '------', '------', '' ]
+  let l:cm['Operator'] =       [ 'ff00ff', '------', '' ]
+  let l:cm['Keyword'] =        [ '------', '------', '' ]
+  let l:cm['Exception'] =      [ '------', '------', '' ]
+  let l:cm['PreProc'] =        [ 'ff6666', '------', '' ]
+  let l:cm['Include'] =        [ '------', '------', '' ]
+  let l:cm['Define'] =         [ '------', '------', '' ]
+  let l:cm['Macro'] =          [ '------', '------', '' ]
+  let l:cm['PreCondit'] =      [ '------', '------', '' ]
+  let l:cm['Type'] =           [ 'ffcc66', '------', 'bold' ]
+  let l:cm['StorageClass'] =   [ '------', '------', '' ]
+  let l:cm['Structure'] =      [ '------', '------', '' ]
+  let l:cm['Typedef'] =        [ '------', '------', '' ]
+  let l:cm['Special'] =        [ 'ffdead', '------', '' ]
+  let l:cm['SpecialChar'] =    [ '------', '------', '' ]
+  let l:cm['Tag'] =            [ '------', '------', '' ]
+  let l:cm['Delimiter'] =      [ '99cccc', '------', 'bold' ]
+  let l:cm['SpecialComment'] = [ '------', '------', '' ]
+  let l:cm['Debug'] =          [ '------', '------', '' ]
+  let l:cm['Underline'] =      [ '------', '------', '' ]
+  let l:cm['Ignore'] =         [ '666666', '------', '' ]
+  let l:cm['Error'] =          [ 'fa8072', '000000', '' ]
+  let l:cm['Todo'] =           [ 'ff4500', 'eeee00', '' ]
+
+  " ruby   group                         fg        bg        attr
+  let l:cm['rubyDefine'] =             [ 'ffff00', '------', 'bold' ]
+  let l:cm['rubyClass'] =              [ '3399ff', '------', 'bold' ]
+  let l:cm['rubyModule'] =             [ 'ff9966', '------', 'bold' ]
+  let l:cm['rubyControl'] =            [ 'ff99ff', '------', '' ]
+  let l:cm['rubyGlobalVariable'] =     [ 'ff3300', '------', '' ]
+  let l:cm['rubyClassVariable'] =      [ 'ff3300', '------', '' ]
+  let l:cm['rubyPredefinedVariable'] = [ 'ff9999', '------', '' ]
+  let l:cm['rubyPredefinedConstant'] = [ 'ff9999', '------', '' ]
+  let l:cm['rubySymbol'] =             [ '99ffcc', '------', '' ]
+  let l:cm['rubyKeywoard'] =           [ 'ff6666', '------', 'bold' ]
+
+  let g:mrkn256_dark_colormap = l:cm
+endfunction
+call <SID>init_dark_colormap()
+delfunction <SID>init_dark_colormap
+" }}}
+
+" light colormap {{{
+function! <SID>init_light_colormap()
+  let l:cm = {}
+  " common group               fg        bg        attr
+  let l:cm['Normal'] =       [ 'cccccc', '000000', '' ]
+  let l:cm['ColorColumn'] =  [ '------', '------', '' ]
+  let l:cm['Conceal'] =      [ '------', '------', '' ]
+  let l:cm['Cursor'] =       [ '708090', 'f0e68c', '' ]
+  let l:cm['CursorIM'] =     [ '------', '------', '' ]
+  let l:cm['CursorColumn'] = [ '------', '333333', 'none' ]
+  let l:cm['CursorLine'] =   [ '------', '333333', 'underline' ]
+  let l:cm['Directory'] =    [ '------', '------', '' ]
+  let l:cm['DiffAdd'] =      [ '------', '------', '' ]
+  let l:cm['DiffChange'] =   [ '------', '------', '' ]
+  let l:cm['DiffDelete'] =   [ '------', '------', '' ]
+  let l:cm['DiffText'] =     [ '------', '------', '' ]
+  let l:cm['ErrMsg'] =       [ '------', '------', '' ]
+  let l:cm['VertSplit'] =    [ '666666', '000000', 'none' ]
+  let l:cm['Folded'] =       [ 'ffd700', '000000', 'none' ]
+  let l:cm['FoldColumn'] =   [ 'd2b48c', '4d4d4d', '' ]
+  let l:cm['SignColumn'] =   [ '------', '------', '' ]
+  let l:cm['IncSearch'] =    [ '708090', 'f0e68c', '' ]
+  let l:cm['LineNr'] =       [ '666666', '------', 'none' ]
+  let l:cm['MatchParen'] =   [ '------', '------', '' ]
+  let l:cm['ModeMsg'] =      [ 'daa520', '------', '' ]
+  let l:cm['MoreMsg'] =      [ '2e8b57', '------', '' ]
+  let l:cm['NonText'] =      [ '666699', '------', 'none' ]
+  let l:cm['Pmenu'] =        [ 'cccccc', '333333', 'none' ]
+  let l:cm['PmenuSel'] =     [ '663333', 'cccccc', 'bold' ]
+  let l:cm['PmenuSbar'] =    [ '------', '------', '' ]
+  let l:cm['PmenuThumb'] =   [ '------', '------', '' ]
+  let l:cm['Question'] =     [ '00ff7f', '------', '' ]
+  let l:cm['Search'] =       [ '333333', 'cccccc', 'bold' ]
+  let l:cm['SpecialKey'] =   [ '666699', '------', 'none' ]
+  let l:cm['SpellBad'] =     [ '------', '------', '' ]
+  let l:cm['SpellCap'] =     [ '------', '------', '' ]
+  let l:cm['SpellLocal'] =   [ '------', '------', '' ]
+  let l:cm['SpellRare'] =    [ '------', '------', '' ]
+  let l:cm['StatusLine'] =   [ 'ffffff', '666666', 'none' ]
+  let l:cm['StatusLineNC'] = [ '000000', '666666', 'none' ]
+  let l:cm['TabLine'] =      [ '------', '------', '' ]
+  let l:cm['TabLineFill'] =  [ '------', '------', '' ]
+  let l:cm['TabLineSel'] =   [ '------', '------', '' ]
+  let l:cm['Title'] =        [ 'cd5c5c', '------', '' ]
+  let l:cm['Visual'] =       [ '6b8e23', 'f0e68c', 'reverse' ]
+  let l:cm['VisualNOS'] =    [ '------', '------', '' ]
+  let l:cm['WarningMsg'] =   [ 'fa8072', '------', '' ]
+  let l:cm['WildMenu'] =     [ '------', '------', '' ]
+
+  " GUI                     fg        bg        attr
+  let l:cm['Menu'] =      [ '------', '------', '' ]
+  let l:cm['Scrollbar'] = [ '------', '------', '' ]
+  let l:cm['Tooltip'] =   [ '------', '------', '' ]
+
+  " common syntax                fg        bg        attr
+  let l:cm['Comment'] =        [ '00ff00', '------', '' ]
+  let l:cm['Constant'] =       [ 'ffcc66', '------', '' ]
+  let l:cm['String'] =         [ '99cccc', '------', '' ]
+  let l:cm['Character'] =      [ '------', '------', '' ]
+  let l:cm['Number'] =         [ 'cc66ff', '------', '' ]
+  let l:cm['Boolean'] =        [ '------', '------', '' ]
+  let l:cm['Float'] =          [ '------', '------', '' ]
+  let l:cm['Identifier'] =     [ '99ff00', '------', 'none' ]
+  let l:cm['Function'] =       [ '9999ff', '------', 'underline' ]
+  let l:cm['Statement'] =      [ '6699ff', '------', 'none' ]
+  let l:cm['Conditional'] =    [ 'ff6633', '------', 'bold' ]
+  let l:cm['Repeat'] =         [ '66ff66', '------', 'bold' ]
+  let l:cm['Label'] =          [ '------', '------', '' ]
+  let l:cm['Operator'] =       [ 'ff00ff', '------', '' ]
+  let l:cm['Keyword'] =        [ '------', '------', '' ]
+  let l:cm['Exception'] =      [ '------', '------', '' ]
+  let l:cm['PreProc'] =        [ 'ff6666', '------', '' ]
+  let l:cm['Include'] =        [ '------', '------', '' ]
+  let l:cm['Define'] =         [ '------', '------', '' ]
+  let l:cm['Macro'] =          [ '------', '------', '' ]
+  let l:cm['PreCondit'] =      [ '------', '------', '' ]
+  let l:cm['Type'] =           [ 'ffcc66', '------', 'bold' ]
+  let l:cm['StorageClass'] =   [ '------', '------', '' ]
+  let l:cm['Structure'] =      [ '------', '------', '' ]
+  let l:cm['Typedef'] =        [ '------', '------', '' ]
+  let l:cm['Special'] =        [ 'ffdead', '------', '' ]
+  let l:cm['SpecialChar'] =    [ '------', '------', '' ]
+  let l:cm['Tag'] =            [ '------', '------', '' ]
+  let l:cm['Delimiter'] =      [ '99cccc', '------', 'bold' ]
+  let l:cm['SpecialComment'] = [ '------', '------', '' ]
+  let l:cm['Debug'] =          [ '------', '------', '' ]
+  let l:cm['Underline'] =      [ '------', '------', '' ]
+  let l:cm['Ignore'] =         [ '666666', '------', '' ]
+  let l:cm['Error'] =          [ 'fa8072', '000000', '' ]
+  let l:cm['Todo'] =           [ 'ff4500', 'eeee00', '' ]
+
+  " ruby   group                         fg        bg        attr
+  let l:cm['rubyDefine'] =             [ 'ffff00', '------', 'bold' ]
+  let l:cm['rubyClass'] =              [ '3399ff', '------', 'bold' ]
+  let l:cm['rubyModule'] =             [ 'ff9966', '------', 'bold' ]
+  let l:cm['rubyControl'] =            [ 'ff99ff', '------', '' ]
+  let l:cm['rubyGlobalVariable'] =     [ 'ff3300', '------', '' ]
+  let l:cm['rubyClassVariable'] =      [ 'ff3300', '------', '' ]
+  let l:cm['rubyPredefinedVariable'] = [ 'ff9999', '------', '' ]
+  let l:cm['rubyPredefinedConstant'] = [ 'ff9999', '------', '' ]
+  let l:cm['rubySymbol'] =             [ '99ffcc', '------', '' ]
+  let l:cm['rubyKeywoard'] =           [ 'ff6666', '------', 'bold' ]
+
+  let g:mrkn256_light_colormap = l:cm
+endfunction
+call <SID>init_light_colormap()
+delfunction <SID>init_light_colormap
+" }}}
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
     " functions {{{
@@ -228,92 +445,43 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
     " sets the highlighting for the given group
     function! <SID>X(group, fg, bg, attr)
-        if a:fg != ""
+        if a:fg =~? '^[0-9a-f]\+$'
             exec "hi " . a:group . " guifg=#" . a:fg . " ctermfg=" . <SID>rgb(a:fg)
         endif
-        if a:bg != ""
+        if a:bg =~? '^[0-9a-f]\+$'
             exec "hi " . a:group . " guibg=#" . a:bg . " ctermbg=" . <SID>rgb(a:bg)
         endif
-        if a:attr != ""
+        if a:attr != ''
             exec "hi " . a:group . " gui=" . a:attr . " cterm=" . a:attr
         endif
     endfun
+
+    function! <SID>apply_colormap_group(cmap, group)
+      let l:fg = a:cmap[a:group][0]
+      let l:bg = a:cmap[a:group][1]
+      let l:attr = a:cmap[a:group][2]
+      call <SID>X(a:group, l:fg, l:bg, l:attr)
+    endfunction
+
+    function! <SID>apply_colormap(cmap)
+      call <SID>apply_colormap_group(a:cmap, 'Normal')
+      for l:group in keys(a:cmap)
+        if l:group !=# 'Normal'
+          call <SID>apply_colormap_group(a:cmap, l:group)
+        endif
+      endfor
+    endfunction
     " }}}
 
-    call <SID>X("Normal", "cccccc", "000000", "")
-
-    " highlight groups
-    call <SID>X("Cursor", "708090", "f0e68c", "")
-    "CursorIM
-    call <SID>X("CursorColumn", "", "333333", "none")
-    call <SID>X("CursorLine", "", "333333", "underline")
-    "Directory
-    "DiffAdd
-    "DiffChange
-    "DiffDelete
-    "DiffText
-    "ErrorMsg
-    call <SID>X("VertSplit", "666666", "000000", "none")
-    call <SID>X("Folded", "ffd700", "000000", "bold")
-    call <SID>X("FoldColumn", "d2b48c", "4d4d4d", "")
-    call <SID>X("LineNr", "666666", "", "none")
-    call <SID>X("ModeMsg", "daa520", "", "")
-    call <SID>X("MoreMsg", "2e8b57", "", "")
-    call <SID>X("NonText", "666699", "", "none")
-    call <SID>X("Question", "00ff7f", "", "")
-    call <SID>X("IncSearch", "708090", "f0e68c", "")
-    call <SID>X("Search", "333333", "cccccc", "bold")
-    call <SID>X("SpecialKey", "666699", "", "none")
-    call <SID>X("StatusLine", "ffffff", "666666", "none")
-    call <SID>X("StatusLineNC", "000000", "666666", "none")
-    call <SID>X("Title", "cd5c5c", "", "")
-    call <SID>X("Visual", "6b8e23", "f0e68c", "reverse")
-
-    "VisualNOS
-    call <SID>X("WarningMsg", "fa8072", "", "")
-    "WildMenu
-    "Menu
-    "Scrollbar
-    "Tooltip
-    call <SID>X("Pmenu", "cccccc", "333333", "none")
-    call <SID>X("PmenuSel", "663333", "cccccc", "bold")
-    " call <SID>X("PmenuSbar", "", "", "")
-    " call <SID>X("PmenuThumb", "", "", "")
-
-    " syntax highlighting groups
-    call <SID>X("Comment", "00ff00", "", "")
-    call <SID>X("Constant", "ffcc66", "", "")
-    call <SID>X("Identifier", "99ff00", "", "none")
-    call <SID>X("Statement", "6699ff", "", "none")
-    call <SID>X("PreProc", "ff6666", "", "")
-    call <SID>X("Type", "ffcc66", "", "bold")
-    call <SID>X("Special", "ffdead", "", "")
-    call <SID>X("Number", "cc66ff", "", "")
-    call <SID>X("String", "99cccc", "", "")
-    call <SID>X("Operator", "ff00ff", "", "")
-    call <SID>X("Conditional", "ff6633", "", "bold")
-    call <SID>X("Repeat", "66ff66", "", "bold")
-    call <SID>X("Function", "9999ff", "", "underline")
-    call <SID>X("Delimiter", "99cccc", "", "bold")
-    "Underlined
-    call <SID>X("Ignore", "666666", "", "")
-    call <SID>X("Error", "fa8072", "000000", "")
-    call <SID>X("Todo", "ff4500", "eeee00", "")
-
-    " for Ruby {{{
-    call <SID>X("rubyDefine", "ffff00", "", "bold")
-    call <SID>X("rubyClass", "3399ff", "", "bold")
-    call <SID>X("rubyModule", "ff9966", "", "bold")
-    call <SID>X("rubyControl", "ff99ff", "", "none")
-    call <SID>X("rubyGlobalVariable", "ff3300", "", "")
-    call <SID>X("rubyClassVariable", "ff3300", "", "")
-    call <SID>X("rubyPredefinedVariable", "ff9999", "", "")
-    call <SID>X("rubyPredefinedConstant", "ff9999", "", "")
-    call <SID>X("rubySymbol", "99ffcc", "", "")
-    call <SID>X("rubyKeyword", "ff6666", "", "bold")
-    " }}}
+    if &background == "dark"
+      call <SID>apply_colormap(g:mrkn256_dark_colormap)
+    else
+      call <SID>apply_colormap(g:mrkn256_light_colormap)
+    endif
 
     " delete functions {{{
+    delf <SID>apply_colormap
+    delf <SID>apply_colormap_group
     delf <SID>X
     delf <SID>rgb
     delf <SID>color
