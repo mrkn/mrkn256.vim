@@ -440,7 +440,12 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
         let l:g = ("0x" . strpart(a:rgb, 2, 2)) + 0
         let l:b = ("0x" . strpart(a:rgb, 4, 2)) + 0
 
-        return <SID>color(l:r, l:g, l:b)
+        let l:color = <SID>color(l:r, l:g, l:b)
+        if l:color == 16
+          let l:color = 0
+        endif
+
+        return l:color
     endfun
 
     " sets the highlighting for the given group
