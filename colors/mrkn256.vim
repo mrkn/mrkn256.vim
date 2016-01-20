@@ -315,7 +315,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
     " for IndentGuides {{{
     call <SID>X("IndentGuidesOdd",  "666699", "333333", "")
-    call <SID>X("IndentGuidesEven", "666699", "666666", "")
+    call <SID>X("IndentGuidesEven", "9999CC", "666666", "")
     " }}}
 
     " delete functions {{{
