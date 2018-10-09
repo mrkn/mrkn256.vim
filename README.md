@@ -20,3 +20,9 @@ Installation
 ------------
 
 Copy this file into ~/.vim/colors (or $VIM/vimfiles/colors in Windows).  Start it from within vim using :colorscheme mrkn256.
+
+Screenshot
+----------
+
+![](images/mrkn256.png)
+
