@@ -24,5 +24,5 @@ Copy this file into ~/.vim/colors (or $VIM/vimfiles/colors in Windows).  Start i
 Screenshot
 ----------
 
-![](images/mrkn256.png)
+<img src="images/mrkn256.png" width="560" height="375" />
 
